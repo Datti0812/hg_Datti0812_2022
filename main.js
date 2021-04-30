@@ -1,5 +1,5 @@
-function NumberToWordConverter(input) 
-{
+
+function NumberToWordConverter(input) {
 	var dict = {};
   dict["0"]="Zero"
   dict["1"]="One"
@@ -11,9 +11,10 @@ function NumberToWordConverter(input)
   dict["7"]="Seven"
   dict["8"]="Eight"
   var i = 0
+  var finalResult=""
   while (i<input.length)
   {
-  	if(!isNaN(input[i]))
+  	if(input[i] && !isNaN(input[i]))
     {
       var numberInStringForm=input[i].toString()
       var digitsToWords = ""
@@ -24,9 +25,9 @@ function NumberToWordConverter(input)
         j+=1
         
       }
-      input[i]=digitsToWords
+      finalResult+=digitsToWords+', '
     }
     i+=1
   }
-  alert(input)
+  console.log(finalResult.slice(0,-2))
 }
