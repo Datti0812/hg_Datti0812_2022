@@ -1,4 +1,3 @@
-
 function NumberToWordConverter(input) {
 	var dict = {};
   dict["0"]="Zero"
@@ -16,16 +15,25 @@ function NumberToWordConverter(input) {
   {
   	if(input[i] && !isNaN(input[i]))
     {
-      var numberInStringForm=input[i].toString()
+      var numberInStringForm=Math.abs(input[i]).toString()
       var digitsToWords = ""
       var j=0
+      var isNegativeNumber= input[i]< 0
+      
       while (j < numberInStringForm.length)
       {
         digitsToWords += dict[numberInStringForm[j]]
         j+=1
         
       }
-      finalResult+=digitsToWords+', '
+      if (isNegativeNumber)
+      {
+         finalResult+='Minus '+digitsToWords+', '
+      }
+      else
+      {
+         finalResult+=digitsToWords+', ' 
+      }
     }
     i+=1
   }
